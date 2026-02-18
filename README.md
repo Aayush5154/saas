@@ -6,7 +6,7 @@ A modern, responsive SaaS application built with **Next.js 14**, **Tailwind CSS*
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## ✨ Features
+## Features
 
 ### Landing Page
 - **Hero Section** with gradient backgrounds and floating elements
@@ -60,14 +60,14 @@ A modern, responsive SaaS application built with **Next.js 14**, **Tailwind CSS*
    http://localhost:3000
    ```
 
-## 🔐 Demo Credentials
+## Demo Credentials
 
 ```
 Email: admin@saas.com
 Password: admin123
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -103,7 +103,7 @@ src/
 └── globals.css
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -113,7 +113,7 @@ src/
 | JWT | Authentication tokens |
 | JSONPlaceholder | Mock API for users data |
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -152,18 +152,18 @@ npm run build
 npm run start
 ```
 
-## 🔧 Environment Variables
+## Environment Variables
 
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `JWT_SECRET` | Secret key for JWT signing | Yes |
 | `NEXT_PUBLIC_API_URL` | API base URL (optional) | No |
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -173,10 +173,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+Your Name - [@email](vjaayush5154@gmail.com)
 
 Project Link: [https://github.com/YOUR_USERNAME/saasify-landing-dashboard](https://github.com/YOUR_USERNAME/saasify-landing-dashboard)
 
 ---
 
-Made with ❤️ using Next.js and Tailwind CSS
+Made with using Next.js and Tailwind CSS
