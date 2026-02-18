@@ -31,7 +31,7 @@ export default function ProductShowcase() {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        strokeWidth="1.5" className="text-white/50">
                     <circle cx="12" cy="5" r="3" />
-                    <path d="M12 8v4M8 16a4 4 0 0 1 8 0M6 12l-2 4M18 12l2 4" />
+                    <img src="/assets/logo.svg" alt="Logo" className="w-4 h-4" />
                   </svg>
                 </div>
                 <div className="space-y-3 flex-1">
