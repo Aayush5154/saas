@@ -1,37 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Figma,
-  Github,
-  Chrome,
-  Slack,
-  Trello,
-  Dribbble,
-} from "lucide-react";
 
-const floatingIcons = [
-  { Icon: Figma, top: "10%", left: "15%", size: "w-12 h-12", bg: "bg-surface border border-surface-border" },
-  { Icon: Github, top: "5%", left: "55%", size: "w-10 h-10", bg: "bg-surface border border-surface-border" },
-  { Icon: Chrome, top: "35%", left: "0%", size: "w-10 h-10", bg: "bg-surface border border-surface-border" },
-  { Icon: Slack, top: "30%", left: "70%", size: "w-14 h-14", bg: "bg-gradient-to-br from-brand-500 to-accent-pink" },
-  { Icon: Trello, top: "65%", left: "10%", size: "w-11 h-11", bg: "bg-surface border border-surface-border" },
-  { Icon: Dribbble, top: "60%", left: "60%", size: "w-10 h-10", bg: "bg-surface border border-surface-border" },
+const floatingEllipses = [
+  { src: "/assets/Ellipse 4.png", top: "5%", left: "10%", size: "w-16 h-16" },
+  { src: "/assets/Ellipse 5.png", top: "10%", left: "60%", size: "w-14 h-14" },
+  { src: "/assets/Ellipse 6.png", top: "35%", left: "5%", size: "w-12 h-12" },
+  { src: "/assets/Ellipse 7.png", top: "30%", left: "70%", size: "w-18 h-18" },
+  { src: "/assets/Ellipse 8.png", top: "60%", left: "15%", size: "w-14 h-14" },
+  { src: "/assets/Ellipse 9.png", top: "55%", left: "65%", size: "w-12 h-12" },
 ];
 
 export default function Guide() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="section-container">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        style={{ backgroundImage: "url('/assets/el.png')" }}
+      />
+
+      <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative w-full h-[340px] md:h-[400px]">
-            {floatingIcons.map(({ Icon, top, left, size, bg }, i) => (
+            {floatingEllipses.map(({ src, top, left, size }, i) => (
               <div
                 key={i}
-                className={`absolute ${size} rounded-full ${bg} flex items-center justify-center shadow-lg`}
+                className={`absolute ${size} rounded-full flex items-center justify-center animate-pulse`}
                 style={{ top, left }}
               >
-                <Icon className="w-5 h-5 text-white" />
+                <Image
+                  src={src}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
+                />
               </div>
             ))}
 

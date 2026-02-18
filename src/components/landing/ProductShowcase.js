@@ -30,8 +30,8 @@ export default function ProductShowcase() {
                 <div className="w-10 h-10 rounded-full bg-white/[0.06] mb-5 flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        strokeWidth="1.5" className="text-white/50">
-                    <circle cx="12" cy="5" r="3" />
-                    <img src="/assets/logo.svg" alt="Logo" className="w-4 h-4" />
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
                   </svg>
                 </div>
                 <div className="space-y-3 flex-1">
@@ -43,9 +43,8 @@ export default function ProductShowcase() {
                   <div className="h-2 w-4/5 rounded bg-white/[0.06]" />
                 </div>
                 <div className="flex items-center gap-3 mt-6 pt-4 border-t border-white/[0.06]">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-400 to-accent-pink overflow-hidden">
-                    <img src="/assets/avatar-1.png" alt="" className="w-full h-full object-cover"
-                         onError={(e) => { e.target.style.display = 'none'; }} />
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-400 to-accent-pink flex items-center justify-center text-white text-xs font-bold">
+                    A
                   </div>
                   <div className="space-y-1.5 flex-1">
                     <div className="h-2 w-24 rounded bg-white/[0.08]" />
@@ -80,10 +79,8 @@ export default function ProductShowcase() {
                 <div className="space-y-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/[0.08] overflow-hidden flex-shrink-0">
-                        <img src={`/assets/user-${i}.png`} alt=""
-                             className="w-full h-full object-cover"
-                             onError={(e) => { e.target.style.display = 'none'; }} />
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-400/50 to-accent-pink/50 flex-shrink-0 flex items-center justify-center text-white text-xs font-medium">
+                        {String.fromCharCode(64 + i)}
                       </div>
                       <div className="space-y-1.5 flex-1">
                         <div className="h-2 w-3/4 rounded bg-white/[0.08]" />
