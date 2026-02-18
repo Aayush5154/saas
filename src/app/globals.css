@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   Google Fonts – Plus Jakarta Sans + Inter
+   ═══════════════════════════════════════════════════════════ */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ═══════════════════════════════════════════════════════════
+   Base Layer – Global Defaults
+   ═══════════════════════════════════════════════════════════ */
+@layer base {
+  /* Smooth scrolling everywhere */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Dark background + light text by default */
+  body {
+    @apply bg-dark-bg text-white font-sans;
+  }
+
+  /* Remove default focus outlines; add brand ring instead */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-400/60 ring-offset-2 ring-offset-dark-bg;
+  }
+
+  /* Nicer default scrollbar (Webkit) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-light rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500/50;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    @apply bg-brand-500/30 text-white;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Component Layer – Reusable Utility Classes
+   ═══════════════════════════════════════════════════════════ */
+@layer components {
+  /* ── Glassmorphism Card ─────────────────────────────────── */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-sm {
+    @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-xl;
+  }
+
+  /* ── Brand Gradient Button ──────────────────────────────── */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-xl font-semibold text-white
+           bg-gradient-brand
+           shadow-glow hover:shadow-glow-lg
+           transition-all duration-300 ease-out
+           hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  /* ── Outlined / Ghost Button ────────────────────────────── */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-xl font-semibold text-white
+           border border-white/20
+           hover:border-brand-400 hover:text-brand-300
+           transition-all duration-300;
+  }
+
+  /* ── Section Container ──────────────────────────────────── */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Section Heading (gradient text) ────────────────────── */
+  .gradient-text {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  /* ── Subtle Divider ─────────────────────────────────────── */
+  .divider {
+    @apply border-t border-surface-border;
+  }
+
+  /* ── Dashboard Sidebar Item ─────────────────────────────── */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl
+           text-muted hover:text-white hover:bg-surface-light
+           transition-all duration-200;
+  }
+  .sidebar-link.active {
+    @apply text-white bg-brand-500/20 border border-brand-500/30;
+  }
+
+  /* ── Input field (dashboard) ────────────────────────────── */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl
+           bg-surface border border-surface-border
+           text-white placeholder:text-muted
+           focus:border-brand-400 focus:ring-1 focus:ring-brand-400/40
+           transition-colors duration-200;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Utilities Layer – One-off Helpers
+   ═══════════════════════════════════════════════════════════ */
+@layer utilities {
+  /* Hide scrollbar but keep scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Animated gradient border trick */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
