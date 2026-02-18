@@ -16,19 +16,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 md:py-32 overflow-hidden">
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative flex items-center justify-center">
-            <div className="absolute -top-4 -left-2 md:left-4 w-14 h-14 md:w-20 md:h-20 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+          <div className="relative flex items-center justify-center order-2 lg:order-1">
+            <div className="absolute -top-2 sm:-top-4 left-4 sm:left-8 md:left-4 w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 z-10">
               <Image src="/assets/Ellipse1.png" alt="" fill className="object-contain" />
             </div>
 
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-16 h-16 md:w-24 md:h-24 z-10">
+            <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 z-10">
               <Image src="/assets/Ellipse2.png" alt="" fill className="object-contain" />
             </div>
 
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <Image
                 src="/assets/earth.png"
                 alt="Globe"
@@ -39,12 +39,12 @@ export default function Contact() {
           </div>
 
 
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5">
+          <div className="order-1 lg:order-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4 sm:mb-5 text-center lg:text-left">
               Get In Touch
             </h2>
 
-            <p className="text-base text-muted leading-relaxed max-w-md mb-8">
+            <p className="text-sm sm:text-base text-muted leading-relaxed max-w-md mb-6 sm:mb-8 mx-auto lg:mx-0 text-center lg:text-left">
               A good design is not only aesthetically pleasing, but also
               functional. It should be able to solve the problem it was
               designed for in the most efficient way possible.
