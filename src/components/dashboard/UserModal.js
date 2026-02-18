@@ -2,16 +2,9 @@
 
 import { X, MapPin, Phone, Globe, Building2, Mail } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════
-//  User Detail Modal – Reusable Modal Component
-//  • Props: isOpen, onClose, user
-//  • Shows extended user details with backdrop blur
-// ═══════════════════════════════════════════════════════════
-
 export default function UserModal({ isOpen, onClose, user }) {
   if (!isOpen || !user) return null;
 
-  // Close on escape key
   const handleKeyDown = (e) => {
     if (e.key === "Escape") onClose();
   };
@@ -21,13 +14,11 @@ export default function UserModal({ isOpen, onClose, user }) {
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onKeyDown={handleKeyDown}
     >
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal */}
       <div
         className="relative w-full max-w-lg bg-black border border-[#222] rounded-lg
                    shadow-2xl shadow-black/50 animate-in fade-in zoom-in-95 duration-200"
@@ -35,7 +26,6 @@ export default function UserModal({ isOpen, onClose, user }) {
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        {/* Header */}
         <div className="flex items-start justify-between p-6 border-b border-[#222]">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full border border-[#222] bg-black flex items-center justify-center text-white text-xl font-bold">
@@ -56,9 +46,7 @@ export default function UserModal({ isOpen, onClose, user }) {
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-6 space-y-6">
-          {/* Contact Info */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold text-[#888] uppercase tracking-wider">
               Contact Information
@@ -86,7 +74,6 @@ export default function UserModal({ isOpen, onClose, user }) {
             </div>
           </div>
 
-          {/* Address */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold text-[#888] uppercase tracking-wider">
               Address
@@ -100,7 +87,6 @@ export default function UserModal({ isOpen, onClose, user }) {
             </div>
           </div>
 
-          {/* Company */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold text-[#888] uppercase tracking-wider">
               Company
@@ -120,7 +106,6 @@ export default function UserModal({ isOpen, onClose, user }) {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="px-6 py-4 border-t border-[#222] flex justify-end gap-3">
           <button
             onClick={onClose}

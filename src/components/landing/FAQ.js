@@ -29,7 +29,6 @@ function FAQItem({ item, isOpen, onToggle }) {
         />
       </button>
 
-      {/* Collapsible answer */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-60 opacity-100 pb-5 md:pb-6" : "max-h-0 opacity-0"
@@ -48,7 +47,6 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative py-24 md:py-32 overflow-hidden">
-      {/* ── Background accent ──────────────────────────────── */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full
@@ -58,7 +56,7 @@ export default function FAQ() {
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* ── Left: Header ───────────────────────────────── */}
+
           <div className="lg:sticky lg:top-32">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
@@ -79,7 +77,7 @@ export default function FAQ() {
             </p>
           </div>
 
-          {/* ── Right: Accordion ───────────────────────────── */}
+
           <div
             className="rounded-2xl border border-surface-border
                        bg-surface/40 backdrop-blur-sm

@@ -24,7 +24,6 @@ export default function Guide() {
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* ── Left: Floating icons arrangement ──────────── */}
           <div className="relative w-full h-[340px] md:h-[400px]">
             {floatingIcons.map(({ Icon, top, left, size, bg }, i) => (
               <div
@@ -36,7 +35,6 @@ export default function Guide() {
               </div>
             ))}
 
-            {/* Connecting dashed ring (decorative) */}
             <div
               aria-hidden="true"
               className="absolute top-1/2 left-[35%] -translate-x-1/2 -translate-y-1/2
@@ -45,7 +43,6 @@ export default function Guide() {
             />
           </div>
 
-          {/* ── Right: Text content ──────────────────────── */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5 leading-tight">
               We&rsquo;re here to guide

@@ -41,9 +41,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-surface-border">
       <div className="section-container">
-        {/* ── Main Grid ──────────────────────────────── */}
         <div className="py-14 grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8">
-          {/* Brand Column (spans 2 cols on md+) */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
               <GitBranch className="w-7 h-7 text-white" />
@@ -58,7 +56,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link Columns */}
           {footerSections.map((section) => (
             <div key={section.title}>
               <h4 className="text-sm font-semibold text-white mb-4">
@@ -81,7 +78,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* ── Bottom Bar ─────────────────────────────── */}
+
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4
                      py-6 border-t border-surface-border"
@@ -90,7 +87,6 @@ export default function Footer() {
             All Rights Reserved inkyy.com {new Date().getFullYear()}
           </p>
 
-          {/* Social Icons */}
           <div className="flex gap-3">
             {socialLinks.map((social) => (
               <a

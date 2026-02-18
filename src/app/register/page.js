@@ -44,14 +44,11 @@ export default function RegisterPage() {
 
     setLoading(true);
 
-    // For registration, use the demo credentials since we have no real signup
-    // In production, you would call a /api/auth/register endpoint
     const result = await login(formData.email, formData.password);
 
     if (result.success) {
       router.push("/dashboard");
     } else {
-      // For demo: show hint about valid credentials
       setError("Registration demo: Use admin@saas.com / admin123 to login");
       setLoading(false);
     }
@@ -59,10 +56,9 @@ export default function RegisterPage() {
 
   return (
     <main className="min-h-screen bg-black flex">
-      {/* ── Left Side: Form ─────────────────────────────── */}
+
       <div className="w-full lg:w-[45%] flex items-center justify-center px-8 py-12 lg:px-16">
         <div className="w-full max-w-md">
-          {/* Heading */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Register
           </h1>
@@ -72,16 +68,13 @@ export default function RegisterPage() {
             pleasing, but also functional.
           </p>
 
-          {/* Error message */}
           {error && (
             <div className="mb-6 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
               {error}
             </div>
           )}
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Full Name */}
             <input
               type="text"
               name="name"
@@ -94,7 +87,6 @@ export default function RegisterPage() {
                          transition-all duration-200"
             />
 
-            {/* Email */}
             <input
               type="email"
               name="email"
@@ -107,7 +99,6 @@ export default function RegisterPage() {
                          transition-all duration-200"
             />
 
-            {/* Password */}
             <input
               type="password"
               name="password"
@@ -120,7 +111,6 @@ export default function RegisterPage() {
                          transition-all duration-200"
             />
 
-            {/* Repeat Password */}
             <input
               type="password"
               name="confirmPassword"
@@ -133,7 +123,6 @@ export default function RegisterPage() {
                          transition-all duration-200"
             />
 
-            {/* Signup button */}
             <button
               type="submit"
               disabled={loading}
@@ -146,7 +135,6 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          {/* Social buttons */}
           <div className="flex gap-4 mt-8">
             <button
               type="button"
@@ -194,7 +182,6 @@ export default function RegisterPage() {
             </button>
           </div>
 
-          {/* Sign in link */}
           <p className="mt-8 text-sm text-[#666]">
             Already have an account?{" "}
             <Link
@@ -207,19 +194,16 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      {/* ── Right Side: Image Grid ──────────────────────── */}
+
       <div className="hidden lg:block lg:w-[55%] p-6 overflow-hidden">
         <div className="grid grid-cols-4 grid-rows-5 gap-3 h-full">
-          {/* Row 1 */}
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
 
-          {/* Row 2 */}
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#9F7AEA] row-span-2 overflow-hidden">
-            {/* Purple background person */}
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face"
               alt="Happy person"
@@ -228,7 +212,6 @@ export default function RegisterPage() {
           </div>
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#F5F5DC] row-span-2 overflow-hidden">
-            {/* Beige background person */}
             <img
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face"
               alt="Smiling person"
@@ -236,10 +219,8 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Row 3 */}
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#F59E0B] row-span-2 overflow-hidden">
-            {/* Yellow background person */}
             <img
               src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=400&fit=crop&crop=face"
               alt="Excited person"
@@ -247,12 +228,10 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Row 4 */}
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
 
-          {/* Row 5 */}
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />
           <div className="rounded-2xl bg-[#111318]" />

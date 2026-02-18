@@ -3,27 +3,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
-// ═══════════════════════════════════════════════════════════
-//  Auth Context – JWT + Cookie Authentication
-//  • login()  → calls API, sets httpOnly cookie on server
-//  • logout() → calls API, clears cookie
-//  • Auto-validates token on page load via /api/auth/me
-// ═══════════════════════════════════════════════════════════
-
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ── Check authentication status on mount ───────────────────
+
   useEffect(() => {
     checkAuth();
   }, []);
 
-  /**
-   * Validate the current session by calling /api/auth/me
-   */
   const checkAuth = async () => {
     try {
       const res = await fetch("/api/auth/me");
@@ -42,14 +32,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-  /**
-   * Login – calls the /api/auth/login endpoint
-   * Server sets httpOnly cookie, we just update state
-   *
-   * @param {string} email
-   * @param {string} password
-   * @returns {{ success: boolean, message?: string, user?: Object }}
-   */
   const login = async (email, password) => {
     try {
       const res = await fetch("/api/auth/login", {
@@ -72,17 +54,12 @@ export function AuthProvider({ children }) {
     }
   };
 
-  /**
-   * Logout – calls the /api/auth/logout endpoint
-   * Server clears httpOnly cookie
-   */
   const logout = async () => {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
     } catch (error) {
       console.error("Logout error:", error);
     } finally {
-      // Also clear any client-side cookie reference (belt & suspenders)
       Cookies.remove("token");
       setUser(null);
     }
@@ -99,10 +76,6 @@ export function AuthProvider({ children }) {
   );
 }
 
-/**
- * Custom hook – consume auth state from any component.
- * Must be rendered inside <AuthProvider>.
- */
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {

@@ -12,15 +12,9 @@ import {
 } from "lucide-react";
 import UserModal from "@/components/dashboard/UserModal";
 
-// ═══════════════════════════════════════════════════════════
-//  Users Page – Advanced User Management Table
-//  • Search, Sort, Pagination, Detail Modal
-// ═══════════════════════════════════════════════════════════
-
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 const USERS_PER_PAGE = 5;
 
-// Table skeleton row
 function TableRowSkeleton() {
   return (
     <tr className="animate-pulse">
@@ -44,7 +38,6 @@ function TableRowSkeleton() {
 }
 
 export default function UsersPage() {
-  // State
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -53,7 +46,6 @@ export default function UsersPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  // Fetch users on mount
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -73,7 +65,6 @@ export default function UsersPage() {
     }
   };
 
-  // Filter users by search query (name OR email)
   const filteredUsers = useMemo(() => {
     if (!searchQuery.trim()) return users;
     const query = searchQuery.toLowerCase();
@@ -84,7 +75,6 @@ export default function UsersPage() {
     );
   }, [users, searchQuery]);
 
-  // Sort users by name
   const sortedUsers = useMemo(() => {
     return [...filteredUsers].sort((a, b) => {
       const comparison = a.name.localeCompare(b.name);
@@ -92,32 +82,27 @@ export default function UsersPage() {
     });
   }, [filteredUsers, sortOrder]);
 
-  // Pagination
   const totalPages = Math.ceil(sortedUsers.length / USERS_PER_PAGE);
   const paginatedUsers = useMemo(() => {
     const start = (currentPage - 1) * USERS_PER_PAGE;
     return sortedUsers.slice(start, start + USERS_PER_PAGE);
   }, [sortedUsers, currentPage]);
 
-  // Reset to page 1 when search changes
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery]);
 
-  // Toggle sort order
   const toggleSort = () => {
     setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
   return (
     <div className="p-6 lg:p-8">
-      {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white mb-2">Users</h1>
         <p className="text-[#888]">Manage and view all users in your system.</p>
       </div>
 
-      {/* Error State */}
       {error && (
         <div className="mb-6 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-center gap-3">
           <AlertCircle className="w-5 h-5 flex-shrink-0" />
@@ -134,7 +119,6 @@ export default function UsersPage() {
         </div>
       )}
 
-      {/* Search Bar */}
       <div className="mb-6">
         <div className="relative max-w-md">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#555]" />
@@ -151,7 +135,6 @@ export default function UsersPage() {
         </div>
       </div>
 
-      {/* Table Container */}
       <div className="rounded-lg bg-black border border-[#222] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
@@ -249,7 +232,6 @@ export default function UsersPage() {
           </table>
         </div>
 
-        {/* Pagination */}
         {!loading && sortedUsers.length > 0 && (
           <div className="px-6 py-4 border-t border-[#222] flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-[#888]">
@@ -298,7 +280,6 @@ export default function UsersPage() {
         )}
       </div>
 
-      {/* User Detail Modal */}
       <UserModal
         isOpen={!!selectedUser}
         onClose={() => setSelectedUser(null)}

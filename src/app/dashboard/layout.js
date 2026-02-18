@@ -14,10 +14,6 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
-// ═══════════════════════════════════════════════════════════
-//  Dashboard Layout – Professional Sidebar Navigation
-// ═══════════════════════════════════════════════════════════
-
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Users", href: "/dashboard/users", icon: Users },
@@ -35,7 +31,6 @@ export default function DashboardLayout({ children }) {
     router.push("/login");
   };
 
-  // Show loading state while checking auth
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -46,7 +41,6 @@ export default function DashboardLayout({ children }) {
 
   return (
     <div className="min-h-screen bg-black flex">
-      {/* ── Mobile Sidebar Overlay ──────────────────────── */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
@@ -54,14 +48,12 @@ export default function DashboardLayout({ children }) {
         />
       )}
 
-      {/* ── Sidebar ─────────────────────────────────────── */}
       <aside
         className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-black border-r border-[#222]
                     transform transition-transform duration-300 ease-in-out
                     ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
       >
         <div className="flex flex-col h-full">
-          {/* Logo */}
           <div className="flex items-center justify-between h-16 px-6 border-b border-[#222]">
             <Link href="/dashboard" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg border border-[#222] flex items-center justify-center">
@@ -77,7 +69,6 @@ export default function DashboardLayout({ children }) {
             </button>
           </div>
 
-          {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-1">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href));
@@ -100,7 +91,6 @@ export default function DashboardLayout({ children }) {
             })}
           </nav>
 
-          {/* User section */}
           <div className="p-4 border-t border-[#222]">
             <div className="flex items-center gap-3 px-3 py-2 mb-3">
               <div className="w-9 h-9 rounded-full border border-[#222] bg-black flex items-center justify-center text-white text-sm font-bold">
@@ -127,9 +117,7 @@ export default function DashboardLayout({ children }) {
         </div>
       </aside>
 
-      {/* ── Main Content ────────────────────────────────── */}
       <div className="flex-1 flex flex-col min-h-screen">
-        {/* Top bar (mobile) */}
         <header className="lg:hidden flex items-center justify-between h-16 px-4 bg-black border-b border-[#222]">
           <button
             onClick={() => setSidebarOpen(true)}
@@ -142,10 +130,9 @@ export default function DashboardLayout({ children }) {
               <GitBranch className="w-4 h-4 text-white" />
             </div>
           </Link>
-          <div className="w-10" /> {/* Spacer */}
+          <div className="w-10" />
         </header>
 
-        {/* Page content */}
         <main className="flex-1 overflow-auto">{children}</main>
       </div>
     </div>

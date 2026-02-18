@@ -19,7 +19,6 @@ const iconMap = {
   Monitor,
 };
 
-/* Alternating icon bg colors to match Figma (some transparent, some gradient) */
 const iconStyles = [
   "bg-transparent border border-surface-border",
   "bg-transparent border border-surface-border",
@@ -33,7 +32,6 @@ export default function Features() {
   return (
     <section id="features" className="relative py-24 md:py-32">
       <div className="section-container">
-        {/* ── Section Header (left-aligned like Figma) ─────── */}
         <div className="max-w-xl mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
             Feature Boxes
@@ -44,7 +42,6 @@ export default function Features() {
           </p>
         </div>
 
-        {/* ── 3×2 Feature Grid ─────────────────────────────── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => {
             const Icon = iconMap[feature.iconName] || Clipboard;
@@ -59,7 +56,6 @@ export default function Features() {
                            transition-all duration-300 ease-out
                            text-center"
               >
-                {/* Circular icon */}
                 <div
                   className={`w-14 h-14 rounded-full mx-auto mb-5
                               flex items-center justify-center
@@ -68,12 +64,10 @@ export default function Features() {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
 
-                {/* Title */}
                 <h3 className="text-base font-bold text-white mb-2">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
                 <p className="text-sm text-muted leading-relaxed">
                   {feature.description}
                 </p>

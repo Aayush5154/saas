@@ -35,7 +35,6 @@ export default function LoginPage() {
 
     setLoading(true);
 
-    // Call the login API
     const result = await login(formData.email, formData.password);
 
     if (result.success) {
@@ -48,12 +47,8 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-screen bg-black flex">
-      {/* ── Left Side: Image / Branding ─────────────────── */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-        {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#7c3aed]/20 via-black to-[#EC4899]/10" />
-
-        {/* Floating ellipses */}
         <div className="absolute top-20 left-10 w-32 h-32 opacity-60">
           <Image src="/assets/Ellipse1.png" alt="" fill className="object-contain" />
         </div>
@@ -64,9 +59,7 @@ export default function LoginPage() {
           <Image src="/assets/Ellipse3.png" alt="" fill className="object-contain" />
         </div>
 
-        {/* Center content */}
         <div className="relative z-10 flex flex-col items-center justify-center w-full px-12">
-          {/* Featured image */}
           <div className="relative w-full max-w-md aspect-square mb-10">
             <Image
               src="/assets/earth.png"
@@ -76,7 +69,6 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Branding text */}
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
               Welcome Back
@@ -89,10 +81,8 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* ── Right Side: Login Form ──────────────────────── */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12 lg:px-12">
         <div className="w-full max-w-md">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 mb-10">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-accent-pink flex items-center justify-center">
               <GitBranch className="w-5 h-5 text-white" />
@@ -102,7 +92,6 @@ export default function LoginPage() {
             </span>
           </Link>
 
-          {/* Heading */}
           <h1 className="text-3xl font-bold text-white mb-2">
             Sign In
           </h1>
@@ -116,16 +105,13 @@ export default function LoginPage() {
             </Link>
           </p>
 
-          {/* Error message */}
           {error && (
             <div className="mb-6 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
               {error}
             </div>
           )}
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -147,7 +133,6 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Password */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label
@@ -190,7 +175,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Remember me checkbox */}
             <div className="flex items-center gap-3">
               <input
                 type="checkbox"
@@ -203,7 +187,6 @@ export default function LoginPage() {
               </label>
             </div>
 
-            {/* Submit button */}
             <button
               type="submit"
               disabled={loading}
@@ -216,7 +199,6 @@ export default function LoginPage() {
               {loading ? "Signing in..." : "Sign In"}
             </button>
 
-            {/* Sign Up button */}
             <Link
               href="/register"
               className="block w-full py-3.5 rounded-full text-sm font-semibold text-white text-center
@@ -227,7 +209,6 @@ export default function LoginPage() {
             </Link>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center gap-4 my-8">
             <div className="flex-1 h-px bg-[#222]" />
             <span className="text-xs text-[#555] uppercase tracking-wider">
@@ -236,7 +217,6 @@ export default function LoginPage() {
             <div className="flex-1 h-px bg-[#222]" />
           </div>
 
-          {/* Social buttons */}
           <div className="flex gap-4">
             <button
               type="button"

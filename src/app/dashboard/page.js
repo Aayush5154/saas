@@ -3,13 +3,8 @@
 import { useState, useEffect } from "react";
 import { Users, Building2, Globe, TrendingUp } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════
-//  Dashboard Home – High-Level Summary with Stat Cards
-// ═══════════════════════════════════════════════════════════
-
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
-// Skeleton loader for stat cards
 function StatCardSkeleton() {
   return (
     <div className="rounded-lg bg-black border border-[#222] p-6 animate-pulse">
@@ -24,7 +19,6 @@ function StatCardSkeleton() {
   );
 }
 
-// Stat card component
 function StatCard({ title, value, icon: Icon, trend }) {
   return (
     <div className="rounded-lg bg-black border border-[#222] p-6 hover:border-[#444] transition-colors duration-200">
@@ -73,7 +67,6 @@ export default function DashboardPage() {
     }
   };
 
-  // Derive stats from users data
   const stats = {
     totalUsers: users.length,
     activeCompanies: new Set(users.map((u) => u.company?.name)).size,
@@ -83,7 +76,6 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 lg:p-8">
-      {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white mb-2">Dashboard</h1>
         <p className="text-[#888]">
@@ -91,7 +83,6 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* Error State */}
       {error && (
         <div className="mb-8 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
           <p className="font-medium">Error loading data</p>
@@ -105,7 +96,6 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {loading ? (
           <>
@@ -142,7 +132,6 @@ export default function DashboardPage() {
         )}
       </div>
 
-      {/* Recent Users Preview */}
       <div className="rounded-lg bg-black border border-[#222] overflow-hidden">
         <div className="px-6 py-4 border-b border-[#222] flex items-center justify-between">
           <h2 className="text-lg font-semibold text-white">Recent Users</h2>

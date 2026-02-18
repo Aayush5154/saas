@@ -51,9 +51,8 @@ export default function FAQPage() {
     <main>
       <Navbar />
 
-      {/* ── Hero Header ─────────────────────────────────── */}
+
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-44 md:pb-20">
-        {/* Floating ellipses */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute top-24 left-4 md:left-12 w-20 h-20 md:w-28 md:h-28">
             <Image src="/assets/Ellipse1.png" alt="" fill className="object-contain" />
@@ -77,7 +76,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* ── FAQ Accordion ───────────────────────────────── */}
+
       <section className="py-12 md:py-20">
         <div className="section-container">
           <div className="max-w-3xl mx-auto">
@@ -97,7 +96,6 @@ export default function FAQPage() {
               ))}
             </div>
 
-            {/* Extra FAQ items for a fuller page */}
             <div
               className="rounded-2xl border border-surface-border
                          bg-surface/40 px-6 md:px-8 mt-6"

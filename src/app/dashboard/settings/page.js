@@ -13,27 +13,18 @@ import {
   Check,
 } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════
-//  Settings Page – Profile form + Theme toggle
-//  • Profile section with Name / Email (read-only)
-//  • Theme switch (Light / Dark) saved to localStorage
-//  • Applies "dark" class to HTML root element
-// ═══════════════════════════════════════════════════════════
-
 export default function SettingsPage() {
   const { user } = useAuth();
   const [theme, setTheme] = useState("dark");
   const [notifications, setNotifications] = useState(true);
   const [saved, setSaved] = useState(false);
 
-  // Load saved theme on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
   }, []);
 
-  // Toggle theme
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
@@ -41,7 +32,6 @@ export default function SettingsPage() {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  // Save settings (simulated)
   const handleSave = () => {
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
@@ -49,7 +39,6 @@ export default function SettingsPage() {
 
   return (
     <div className="p-6 lg:p-8 space-y-8">
-      {/* Page Header */}
       <div>
         <h1 className="text-2xl font-bold text-white">Settings</h1>
         <p className="text-[#888] mt-1">
@@ -58,7 +47,6 @@ export default function SettingsPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {/* Sidebar Nav */}
         <div className="lg:col-span-1">
           <nav className="space-y-1">
             {[
@@ -83,9 +71,7 @@ export default function SettingsPage() {
           </nav>
         </div>
 
-        {/* Main Settings Content */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Profile Section */}
           <div className="bg-black border border-[#222] rounded-lg p-6">
             <h2 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
               <User className="w-5 h-5 text-white" />
@@ -93,7 +79,6 @@ export default function SettingsPage() {
             </h2>
 
             <div className="space-y-5">
-              {/* Avatar */}
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full border border-[#222] bg-black flex items-center justify-center text-white text-2xl font-bold">
                   {user?.name?.charAt(0) || "A"}
@@ -108,7 +93,6 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              {/* Name Field */}
               <div>
                 <label className="block text-sm font-medium text-[#888] mb-2">
                   Full Name
@@ -125,7 +109,6 @@ export default function SettingsPage() {
                 </p>
               </div>
 
-              {/* Email Field */}
               <div>
                 <label className="block text-sm font-medium text-[#888] mb-2">
                   Email Address
@@ -139,7 +122,6 @@ export default function SettingsPage() {
                 />
               </div>
 
-              {/* Role Badge */}
               <div>
                 <label className="block text-sm font-medium text-[#888] mb-2">
                   Account Role
@@ -151,7 +133,6 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* Appearance Section */}
           <div className="bg-black border border-[#222] rounded-lg p-6">
             <h2 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
               {theme === "dark" ? (
@@ -163,7 +144,6 @@ export default function SettingsPage() {
             </h2>
 
             <div className="space-y-5">
-              {/* Theme Toggle */}
               <div className="flex items-center justify-between p-4 rounded-lg bg-black border border-[#222]">
                 <div className="flex items-center gap-3">
                   {theme === "dark" ? (
@@ -196,7 +176,6 @@ export default function SettingsPage() {
                 </button>
               </div>
 
-              {/* Notification Toggle */}
               <div className="flex items-center justify-between p-4 rounded-lg bg-black border border-[#222]">
                 <div className="flex items-center gap-3">
                   <Bell className="w-5 h-5 text-[#888]" />
@@ -225,7 +204,6 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* Save Button */}
           <div className="flex justify-end">
             <button
               onClick={handleSave}

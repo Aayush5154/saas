@@ -8,10 +8,6 @@ import { pricing } from "@/data/landing-content";
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
 
-  /**
-   * Compute display price.
-   * Yearly = monthly × 10 (2 months free). Free stays free.
-   */
   function getPrice(plan) {
     if (plan.price === "$0") return "$0";
     if (isYearly) {
@@ -23,7 +19,6 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="relative py-24 md:py-32 overflow-hidden">
-      {/* ── Background accents ─────────────────────────────── */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px]
@@ -32,7 +27,6 @@ export default function Pricing() {
       </div>
 
       <div className="section-container relative z-10">
-        {/* ── Section Header ───────────────────────────────── */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
@@ -52,7 +46,6 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* ── Monthly / Yearly Toggle ──────────────────────── */}
         <div className="flex items-center justify-center gap-4 mb-14">
           <span
             className={`text-sm font-medium transition-colors duration-200 ${
@@ -89,7 +82,6 @@ export default function Pricing() {
           </span>
         </div>
 
-        {/* ── Pricing Cards ────────────────────────────────── */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           {pricing.map((plan, index) => {
             const recommended = plan.isRecommended;
@@ -101,7 +93,6 @@ export default function Pricing() {
                   recommended ? "md:-mt-4 md:mb-0" : ""
                 }`}
               >
-                {/* Gradient border for recommended */}
                 {recommended && (
                   <div
                     aria-hidden="true"
@@ -119,7 +110,6 @@ export default function Pricing() {
                                   : "bg-surface/60 border-surface-border hover:border-brand-500/30"
                               } transition-all duration-300`}
                 >
-                  {/* Recommended badge */}
                   {recommended && (
                     <div
                       className="absolute -top-3.5 left-1/2 -translate-x-1/2
@@ -132,15 +122,12 @@ export default function Pricing() {
                     </div>
                   )}
 
-                  {/* Plan name */}
                   <h3 className="text-lg font-bold text-white mt-2 mb-2">
                     {plan.name}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-sm text-muted mb-6">{plan.description}</p>
 
-                  {/* Price */}
                   <div className="flex items-baseline gap-1 mb-8">
                     <span className="text-4xl md:text-5xl font-extrabold text-white">
                       {getPrice(plan)}
@@ -152,7 +139,6 @@ export default function Pricing() {
                     )}
                   </div>
 
-                  {/* Feature checklist */}
                   <ul className="flex flex-col gap-3 mb-8 flex-1">
                     {plan.features.map((feat) => (
                       <li key={feat} className="flex items-start gap-3">
@@ -166,7 +152,6 @@ export default function Pricing() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
                   <Link
                     href="/login"
                     className={`w-full text-center text-sm font-semibold py-3 rounded-xl

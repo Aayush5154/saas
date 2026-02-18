@@ -5,7 +5,6 @@ import { Star } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
-/* ── All cards use the same data as the Figma design ───────── */
 const cards = Array.from({ length: 5 }, (_, i) => ({
   id: i,
   text: "Designers need to have a strong understanding of the principles of design in order to create effective solutions. They must also be aware of the latest trends and technologies so that they can stay ahead of the curve.",
@@ -19,7 +18,6 @@ export default function TestimonialsPage() {
   const [active, setActive] = useState(1); // start on the centre card
   const trackRef = useRef(null);
 
-  /* ── Scroll the track so the active card is centred ──────── */
   const scrollToActive = useCallback(
     (idx) => {
       const track = trackRef.current;
@@ -39,16 +37,13 @@ export default function TestimonialsPage() {
     scrollToActive(active);
   }, [active, scrollToActive]);
 
-  /* Centre on mount / resize */
   useEffect(() => {
     const handler = () => scrollToActive(active);
     handler();
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* Map 5 cards → 3 dots */
   const dotCount = 3;
   const dotIndex =
     active <= 1 ? 0 : active >= cards.length - 2 ? 2 : 1;
@@ -57,16 +52,15 @@ export default function TestimonialsPage() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
-      {/* ── Title ───────────────────────────────────────── */}
+
       <section className="pt-36 md:pt-44 pb-14 md:pb-20 text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
           Testimonails
         </h1>
       </section>
 
-      {/* ── Carousel ────────────────────────────────────── */}
+
       <section className="relative pb-16 md:pb-24">
-        {/* Horizontal scroll track */}
         <div
           ref={trackRef}
           className="flex gap-5 md:gap-7 overflow-x-auto scroll-smooth
@@ -93,15 +87,12 @@ export default function TestimonialsPage() {
                               : "opacity-60 scale-[0.97]"
                           }`}
             >
-              {/* Testimonial text */}
               <p className="text-[15px] md:text-base leading-[1.7] text-[#c2c2c2] mb-8">
                 {card.text}
               </p>
 
-              {/* Divider */}
               <div className="border-t border-[#2a2a2a] mb-5" />
 
-              {/* Author row */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-surface-light flex-shrink-0">
@@ -119,7 +110,6 @@ export default function TestimonialsPage() {
                   </div>
                 </div>
 
-                {/* 5 gold stars */}
                 <div className="flex gap-[3px]">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -133,7 +123,7 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        {/* ── Pagination Dots ──────────────────────────── */}
+
         <div className="flex items-center justify-center gap-3 mt-12">
           {[...Array(dotCount)].map((_, i) => (
             <button

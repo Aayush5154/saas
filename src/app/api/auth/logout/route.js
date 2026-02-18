@@ -1,15 +1,9 @@
 import { cookies } from "next/headers";
 
-// ═══════════════════════════════════════════════════════════
-//  Logout API Route – POST /api/auth/logout
-//  • Clears the auth cookie
-// ═══════════════════════════════════════════════════════════
-
 export async function POST() {
   try {
     const cookieStore = await cookies();
     
-    // Clear the token cookie by setting it to empty with immediate expiry
     cookieStore.set("token", "", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

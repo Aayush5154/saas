@@ -7,7 +7,7 @@ import { Check } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
-/* ── Plan data matching Figma design ───────────────────────── */
+
 const plans = [
   {
     name: "Silver Package",
@@ -54,16 +54,14 @@ export default function PricingPage() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
-      {/* ── Header Row: Title + Toggle ──────────────────── */}
+
       <section className="pt-32 md:pt-40 pb-16 md:pb-20">
         <div className="section-container">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            {/* Title on the left */}
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
               Pricing
             </h1>
 
-            {/* Monthly/Yearly toggle on the right */}
             <div className="flex items-center">
               <div className="inline-flex rounded-full bg-[#1a1a1a] p-1">
                 <button
@@ -92,13 +90,12 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── Pricing Cards ───────────────────────────────── */}
+
       <section className="pb-24 md:pb-32">
         <div className="section-container">
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-[1100px] mx-auto">
             {plans.map((plan) => (
               <div key={plan.name} className="relative pt-10">
-                {/* Floating icon above the card */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
                   <div className="relative w-16 h-16 md:w-[72px] md:h-[72px]">
                     <Image
@@ -110,18 +107,15 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                {/* Card */}
                 <div
                   className="relative rounded-2xl bg-[#111318] border border-[#222]
                              pt-14 pb-8 px-7 md:px-8 flex flex-col"
                 >
-                  {/* Plan name + divider */}
                   <h3 className="text-lg font-semibold text-white text-center mb-5">
                     {plan.name}
                   </h3>
                   <div className="border-t border-[#2a2a2a] mb-6" />
 
-                  {/* Features list */}
                   <ul className="space-y-4 mb-10 flex-1">
                     {plan.features.map((feature) => (
                       <li
@@ -136,7 +130,6 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  {/* Price + CTA row */}
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl md:text-4xl font-bold text-white">

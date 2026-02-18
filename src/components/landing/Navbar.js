@@ -25,7 +25,6 @@ export default function Navbar() {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* ── Logo (Squid style) ────────────────────────────── */}
           <Link href="/" className="flex items-center gap-2.5">
             <GitBranch className="w-7 h-7 text-white" />
             <span className="text-lg font-bold text-white tracking-tight">
@@ -33,7 +32,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* ── Desktop: Center nav links ─────────────────────── */}
           <ul className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -48,7 +46,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* ── Desktop CTA (pink pill button) ────────────────── */}
           <div className="hidden md:block">
             <Link
               href="/login"
@@ -60,7 +57,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* ── Mobile Hamburger ──────────────────────────────── */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-xl text-muted hover:text-white
@@ -72,7 +68,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Mobile Drawer ──────────────────────────────────── */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"

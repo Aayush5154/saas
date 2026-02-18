@@ -12,7 +12,6 @@ export default function CTABanner() {
                      bg-gradient-to-r from-brand-600 via-brand-500 to-accent-pink
                      p-10 md:p-16"
         >
-          {/* Frame.png world map on right side */}
           <div className="absolute top-0 right-0 bottom-0 w-[55%] pointer-events-none">
             <Image
               src="/assets/Frame.png"
@@ -23,7 +22,7 @@ export default function CTABanner() {
           </div>
 
           <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
-            {/* ── Left: Text ──────────────────────────── */}
+
             <div>
               <p className="text-sm font-medium text-white/70 tracking-wide mb-3 uppercase">
                 Love our Our Tool?
@@ -45,7 +44,6 @@ export default function CTABanner() {
               </Link>
             </div>
 
-            {/* Right side is the bb.png image (positioned absolutely above) */}
             <div className="hidden md:block" />
           </div>
         </div>
